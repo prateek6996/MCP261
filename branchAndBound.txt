@@ -1,0 +1,17 @@
+LP-based branch and bound is an algorithm used to solve mixed-integer linear programming (MILP) problems. It combines the branch and bound technique with linear programming relaxation.
+
+How to solve the LP relaxation: First, solve the linear programming relaxation of the MILP problem. This means ignoring the integer constraints and solving the problem as a linear programming (LP) problem. The LP relaxation provides a lower bound on the optimal objective value.
+
+Check feasibility: If the LP relaxation is infeasible (no feasible solution exists), prune the branch and backtrack.
+
+Check optimality: If the LP relaxation's objective value is worse than the best objective value found so far, prune the branch and backtrack.
+
+Check integer solution: If the LP relaxation solution is an integer solution, update the best objective value and solution if necessary.
+
+Branching: Select a fractional variable (one with a non-integer value) from the LP relaxation solution. Create two new subproblems by adding binary constraints to the LP relaxation, one with a lower bound on the selected variable and the other with an upper bound.
+
+Recursion: Recursively solve the two subproblems created in step 5, repeating the process until all branches have been explored or pruned.
+
+Backtrack: Backtrack to previous levels of the tree and explore other branches if necessary.
+
+Now let's go through an example and write the code to solve it using LP-based branch and bound.
